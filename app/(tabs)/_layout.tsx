@@ -1,9 +1,11 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { Button } from 'react-native';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -11,8 +13,15 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? 'dark'].tint,
         headerShown: false,
+        headerRight: () => (
+          <Button
+            onPress={() => alert('This is a button!')}
+            title="Info"
+            color={Colors[colorScheme ?? 'dark'].tint}
+          />
+        ),
       }}>
       <Tabs.Screen
         name="index"
@@ -26,9 +35,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
+          title: 'Perfil',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'compass' : 'compass-outline'} color={color} />
+            <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} />
           ),
         }}
       />
