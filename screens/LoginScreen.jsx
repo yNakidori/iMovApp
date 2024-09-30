@@ -10,9 +10,29 @@ export default function LoginScreen() {
       <StatusBar style="light" />
       <Image className="h-full w-full absolute" source={bg}></Image>
 
-      <View className="flex-row justify-around w-full absolute">
-        <Image className="h-[225] w-[90]" source={light}></Image>
-        <Image className="h-[160] w-[65]" source={light}></Image>
+      {/* Luzes sobre o background */}
+      <View
+        style={{
+          position: "absolute",
+          width: "100%",
+          top: 50,
+          zIndex: 1,
+          flexDirection: "row",
+          justifyContent: "space-around",
+        }}
+      >
+        <Image style={{ height: 225, width: 90 }} source={light} />
+        <Image style={{ height: 160, width: 65 }} source={light} />
+      </View>
+
+      {/* Titulo e formulario */}
+      <View className="h-full w-full flex justify-around pt-10">
+        {/* Titulo */}
+        <View className="flex items-center">
+          <Text className="text-red-600 font-bold tracking-wider text-5xl">
+            Login
+          </Text>
+        </View>
       </View>
     </View>
   );
